@@ -1,42 +1,39 @@
-import { Button } from "@mui/material";
+import React from "react";
 
 function Footer() {
   const links = [
-    // "Contact PrivateDelights",
-    "Blog",
-    "Twitter",
-    "Locations",
-    "Privacy Policy",
-    "Terms",
+    { name: "About Us", url: "#" },
+    { name: "Contact Us", url: "#" },
+    { name: "Terms of Use", url: "#" },
+    { name: "Privacy Policy", url: "#" },
+    { name: "Maps", url: "#" }
   ];
 
   return (
-    <div className="bg-custom-gray  mx-auto lg:px-[404px] pt-[64px] pb-[63px] lg:pb-[59px] items-center">
-      <div className=" flex flex-col lg:flex-row justify-between items-center text-custom-indigo text-[16.8px]">
-        <p className="text-center cursor-pointer">
-          Contact <span className="lg:block"> PrivateDelights</span>
-        </p>
-        {links.map((link, i) => (
-          <p key={i} className="cursor-pointer">
-            {link}
-          </p>
-        ))}
-      </div>
-      <div className="hidden md:block fixed md:bottom-[90px] lg:bottom-[110px] right-5">
-        <Button
-          variant="contained"
-          // color="primary"
-          // disableElevation
-          className="bg-custom-indigo px-[15px] py-[8px] text-sm capitalize rounded-sm"
-        >
-          HELP/FEEDBACK
-        </Button>
-      </div>
+    <footer className="w-full self-stretch bg-[#050505] border-t border-zinc-900 py-8 mt-auto">
+      <div className="w-full flex flex-col items-start justify-center gap-4 px-4">
+        {/* Navigation Links */}
+        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm">
+          {links.map((link, i) => (
+            <a
+              key={i}
+              href={link.url}
+              className="text-[#fbc02d] hover:text-[#f57f17] font-medium tracking-wide transition-colors"
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
 
-      <p className="mt-[22px] text-center text-[16.8px] text-black/90">
-        © 2025 PrivateDelights.ch
-      </p>
-    </div>
+        {/* Copyright */}
+        <p className="text-zinc-500 text-xs text-center">
+          © 2026, powered by{" "}
+          <a href="#" className="text-[#fbc02d] hover:underline">
+            TruEscorts Verified Escort Directory
+          </a>
+        </p>
+      </div>
+    </footer>
   );
 }
 

