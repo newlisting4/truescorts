@@ -44,7 +44,7 @@ export default function Home({ adminId, posterId }) {
           </p>
 
           {/* Intro Box */}
-          <div className="max-w-3xl mx-auto bg-[#0b0b0b] border border-zinc-800 rounded-lg p-6 mb-12 text-center">
+          <div className="max-w-3xl mx-auto bg-[#0b0b0b] border border-zinc-800 rounded-lg p-4 md:p-6 mb-8 md:mb-12 text-center">
             <h2 className="text-xl md:text-2xl font-bold tracking-tight text-white mb-2">
               Browse Verified Independent Companions by State and City
             </h2>
@@ -54,7 +54,7 @@ export default function Home({ adminId, posterId }) {
           </div>
 
           {/* Directory Column Grid (masonry style 5 columns on large screens) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-16">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 mb-12 md:mb-16">
             {columnsData.map((column, colIdx) => (
               <div key={colIdx} className="flex flex-col gap-4">
                 {column.map((stateItem, stateIdx) => (
@@ -75,7 +75,7 @@ export default function Home({ adminId, posterId }) {
                           <li key={cityIdx}>
                             <button
                               onClick={handleSignInClick}
-                              className="text-[#fbc02d] hover:text-[#f57f17] text-xs font-medium text-left transition-colors cursor-pointer w-full hover:underline"
+                              className="text-[#fbc02d] hover:text-[#ff66c4] text-xs font-medium text-left transition-colors cursor-pointer w-full hover:underline"
                             >
                               {city}
                             </button>
@@ -92,8 +92,8 @@ export default function Home({ adminId, posterId }) {
           </div>
 
           {/* SEO Content Section */}
-          <div className="max-w-7xl mx-auto border-t border-[#c2185b] pt-10 pb-6 px-4 md:px-8">
-            <h2 className="text-2xl font-bold text-[#c2185b] mb-4">
+          <div className="max-w-7xl mx-auto border-t border-[#ff66c4] pt-8 md:pt-10 pb-6 ">
+            <h2 className="text-xl md:text-2xl font-bold text-[#ff66c4] mb-4">
               Best Escort Sites
             </h2>
             
@@ -104,22 +104,22 @@ export default function Home({ adminId, posterId }) {
             {!isExpanded ? (
               <button 
                 onClick={() => setIsExpanded(true)}
-                className="text-[#fbc02d] hover:text-[#f57f17] text-sm font-semibold hover:underline"
+                className="text-[#fbc02d] hover:text-[#ff66c4] text-sm font-semibold hover:underline"
               >
                 Read More
               </button>
             ) : (
               <div className="space-y-8 animate-fadeIn">
                 {/* Image 1 */}
-                <div className="w-full my-4 overflow-hidden">
+                <div className="w-full max-w-xl mx-auto my-4 overflow-hidden rounded-lg">
                   <img 
                     src="/escorts_images/Best%20Escort%20Sites.png" 
                     alt="Best Escort Sites"
-                    className="w-full max-h-[500px] object-cover"
+                    className="w-full max-h-[220px] sm:max-h-[300px] md:max-h-[360px] object-cover"
                   />
                 </div>
-                <hr className="border-t-2 border-[#c2185b] mt-4 mb-2" />
-                <h3 className="text-xl font-bold text-[#c2185b] mb-2">
+                <hr className="border-t-2 border-[#ff66c4] mt-4 mb-2" />
+                <h3 className="text-lg md:text-xl font-bold text-[#ff66c4] mb-2">
                   Find Local Escorts Near Me
                 </h3>
                 <p className="text-zinc-400 text-sm leading-relaxed">
@@ -127,86 +127,86 @@ export default function Home({ adminId, posterId }) {
                 </p>
 
                 {/* Image 2 */}
-                <div className="w-full my-4 overflow-hidden">
+                <div className="w-full max-w-xl mx-auto my-4 overflow-hidden rounded-lg">
                   <img 
                     src="/escorts_images/Find%20Local%20Escorts%20Near%20Me.png" 
                     alt="Find Local Escorts Near Me"
-                    className="w-full max-h-[500px] object-cover"
+                    className="w-full max-h-[220px] sm:max-h-[300px] md:max-h-[360px] object-cover"
                   />
                 </div>
 
 
-                <hr className="border-t-2 border-[#c2185b] my-8" />
+                <hr className="border-t-2 border-[#ff66c4] my-6 md:my-8" />
                 
-                <h3 className="text-xl font-bold text-[#c2185b] mb-4">
+                <h3 className="text-lg md:text-xl font-bold text-[#ff66c4] mb-4">
                   Frequently Asked Questions About Escorts
                 </h3>
 
                 {/* FAQ Image */}
-                <div className="w-2xl my-4 overflow-hidden">
+                <div className="w-full max-w-xl mx-auto my-4 overflow-hidden rounded-lg">
                   <img 
                     src="/escorts_images/Frequently%20Asked%20Questions%20About%20Escorts.png" 
                     alt="Frequently Asked Questions About Escorts"
-                    className="w-full max-h-[500px] object-cover"
+                    className="w-full max-h-[220px] sm:max-h-[300px] md:max-h-[360px] object-cover"
                   />
                 </div>
 
                 <div className="space-y-6">
                   <div>
-                    <h4 className="text-lg font-bold text-[#c2185b] mb-2">What is an escort?</h4>
+                    <h4 className="text-base md:text-lg font-bold text-[#ff66c4] mb-2">What is an escort?</h4>
                     <p className="text-zinc-400 text-sm leading-relaxed">
                       An <strong className="font-semibold text-white">escort</strong> is a professional companion hired for non-sexual services like attending social events, enjoying conversation, or sharing private time. The purpose is companionship — not sexual acts. Escorts may accompany clients to business dinners, weekend getaways, or quiet nights in. The key distinction lies in legality: escorting is legal in many areas, while exchanging money for sexual activity is classified as prostitution. For a breakdown of the differences, visit <a href="http://lacriminaldefenseattorney.com" target="_blank" rel="noopener noreferrer" className="text-[#fbc02d] hover:underline">lacriminaldefenseattorney.com</a>.
                     </p>
                   </div>
 
                   <div>
-                    <h4 className="text-lg font-bold text-[#c2185b] mb-2">Is hiring an escort legal in the United States?</h4>
+                    <h4 className="text-base md:text-lg font-bold text-[#ff66c4] mb-2">Is hiring an escort legal in the United States?</h4>
                     <p className="text-zinc-400 text-sm leading-relaxed">
                       Hiring an <strong className="font-semibold text-white">escort</strong> for companionship purposes is legal in most areas of the United States. Escorts can legally offer time, attention, and presence for agreed-upon hourly rates. However, if the exchange involves payment for sexual services, it may violate local prostitution laws. Clients and providers alike should be informed about local regulations and operate within legal boundaries to maintain safety and respect.
                     </p>
                   </div>
 
                   <div>
-                    <h4 className="text-lg font-bold text-[#c2185b] mb-2">Are escorts verified on TruEscorts?</h4>
+                    <h4 className="text-base md:text-lg font-bold text-[#ff66c4] mb-2">Are escorts verified on TruEscorts?</h4>
                     <p className="text-zinc-400 text-sm leading-relaxed">
                       Yes. All <strong className="font-semibold text-white">escort</strong> listings on TruEscorts go through a verification process before appearing on the site. We check for accurate photos, consistent service details, and up-to-date availability. This ensures that users are connecting with real, reputable providers who value clarity and professionalism.
                     </p>
                   </div>
 
                   <div>
-                    <h4 className="text-lg font-bold text-[#c2185b] mb-2">Do escorts offer both incall and outcall?</h4>
+                    <h4 className="text-base md:text-lg font-bold text-[#ff66c4] mb-2">Do escorts offer both incall and outcall?</h4>
                     <p className="text-zinc-400 text-sm leading-relaxed">
                       Most providers on TruEscorts offer both incall and outcall service options. Incall means you visit their hosting location — often a private apartment or hotel. Outcall means the escort travels to you. Listings clearly state which options are available, along with any travel boundaries, screening requirements, or additional rates.
                     </p>
                   </div>
 
                   <div>
-                    <h4 className="text-lg font-bold text-[#c2185b] mb-2">Can I filter by services or preferences?</h4>
+                    <h4 className="text-base md:text-lg font-bold text-[#ff66c4] mb-2">Can I filter by services or preferences?</h4>
                     <p className="text-zinc-400 text-sm leading-relaxed">
                       Yes — TruEscorts lets you filter providers by service type, communication style, availability, and physical preferences. Whether you're looking for a <strong className="font-semibold text-[#fbc02d]">fetish-friendly</strong> escort, GFE, or massage-focused provider, our search tools help you narrow your choices quickly.
                     </p>
                   </div>
 
                   <div>
-                    <h4 className="text-lg font-bold text-[#c2185b] mb-2">Is TruEscorts private and secure?</h4>
+                    <h4 className="text-base md:text-lg font-bold text-[#ff66c4] mb-2">Is TruEscorts private and secure?</h4>
                     <p className="text-zinc-400 text-sm leading-relaxed">
                       Absolutely. TruEscorts operates on a secure, encrypted platform and never requires an account to view listings. We respect your privacy at every step, whether you're browsing casually or connecting with someone directly. All communication is managed between you and the provider.
                     </p>
                   </div>
                 </div>
 
-                <hr className="border-t-2 border-[#c2185b] my-8" />
+                <hr className="border-t-2 border-[#ff66c4] my-6 md:my-8" />
                 
-                <h3 className="text-xl font-bold text-[#c2185b] mb-4">
+                <h3 className="text-lg md:text-xl font-bold text-[#ff66c4] mb-4">
                   Incall Escorts
                 </h3>
 
                 {/* Incall Escorts Image */}
-                <div className="w-full my-4 overflow-hidden">
+                <div className="w-full max-w-xl mx-auto my-4 overflow-hidden rounded-lg">
                   <img 
                     src="/escorts_images/Incall%20Escorts.png" 
                     alt="Incall Escorts"
-                    className="w-full max-h-[500px] object-cover"
+                    className="w-full max-h-[220px] sm:max-h-[300px] md:max-h-[360px] object-cover"
                   />
                 </div>
 
@@ -214,18 +214,18 @@ export default function Home({ adminId, posterId }) {
                   <span className="text-[#fbc02d] font-semibold">Incall escorts</span> offer a discreet and welcoming environment where clients visit the provider's private location. These spaces are typically upscale, clean, and well-appointed — ranging from luxury apartments to hotel suites. Many escorts use scented candles, ambient music, and soft lighting to create a spa-like experience for their guests. Incalls are ideal for those who value privacy and control over the setting. On TruEscorts, each provider clearly lists whether incall is available, as well as their approximate location, hours, and any screening requirements. Whether you're newcomer or a returning client, incall services provide a calm, low-stress option that's easy to arrange.
                 </p>
 
-                <hr className="border-t-2 border-[#c2185b] my-8" />
+                <hr className="border-t-2 border-[#ff66c4] my-6 md:my-8" />
                 
-                <h3 className="text-xl font-bold text-[#c2185b] mb-4">
+                <h3 className="text-lg md:text-xl font-bold text-[#ff66c4] mb-4">
                   Outcall Escorts
                 </h3>
 
                 {/* Outcall Escorts Image */}
-                <div className="w-full my-4 overflow-hidden">
+                <div className="w-full max-w-xl mx-auto my-4 overflow-hidden rounded-lg">
                   <img 
                     src="/escorts_images/Outcall%20Escorts.png" 
                     alt="Outcall Escorts"
-                    className="w-full max-h-[500px] object-cover"
+                    className="w-full max-h-[220px] sm:max-h-[300px] md:max-h-[360px] object-cover"
                   />
                 </div>
 
@@ -234,36 +234,36 @@ export default function Home({ adminId, posterId }) {
                 </p>
 
 
-                <hr className="border-t-2 border-[#c2185b] my-8" />
+                <hr className="border-t-2 border-[#ff66c4] my-6 md:my-8" />
                 
-                <h3 className="text-xl font-bold text-[#c2185b] mb-4">
+                <h3 className="text-lg md:text-xl font-bold text-[#ff66c4] mb-4">
                   Independent Escorts
                 </h3>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
                   <strong className="font-semibold text-white">Independent</strong> escorts offer a more personalized experience than agencies or collectives. These providers manage their own listings, communication, and bookings — allowing them to tailor each interaction to your preferences. On TruEscorts, you'll find a wide range of independent personalities: from bubbly conversationalists and sultry GFE dates to kink-friendly companions with strong boundaries and clear offerings. Independent providers often post candid photos, write their own bios, and engage directly with clients, so what you see is truly what you get. Many also maintain repeat clientele and offer greater flexibility with custom requests, extended bookings, or low-key meetups. Choose independence for honesty, authenticity, and direct communication.
                 </p>
 
-                <hr className="border-t-2 border-[#c2185b] my-8" />
+                <hr className="border-t-2 border-[#ff66c4] my-6 md:my-8" />
                 
-                <h3 className="text-xl font-bold text-[#c2185b] mb-4">
+                <h3 className="text-lg md:text-xl font-bold text-[#ff66c4] mb-4">
                   Massage Escorts
                 </h3>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
                   <strong className="font-semibold text-white">Massage</strong> escorts specialize in body-focused sessions that range from light relaxation to full body-to-body experiences. Many providers incorporate soothing elements like warm oils, sensual techniques, and aromatherapy into their sessions. These experiences are ideal for clients seeking intimacy blended with stress relief, and often mimic spa treatments with a more personal twist. Whether offered as incall or outcall, massage listings on TruEscorts clearly indicate what's included, as well as any customizations, add-ons, or time-based options. Massage encounters may be labeled as tantra, nuru, sensual, or therapeutic — and you can filter by these terms while browsing. Just be sure to read the provider's full profile to respect boundaries and expectations.
                 </p>
 
-                <hr className="border-t-2 border-[#c2185b] my-8" />
+                <hr className="border-t-2 border-[#ff66c4] my-6 md:my-8" />
 
-                <h3 className="text-xl font-bold text-[#c2185b] mb-4">
+                <h3 className="text-lg md:text-xl font-bold text-[#ff66c4] mb-4">
                   Fetish Friendly Escorts
                 </h3>
 
                 {/* Fetish Friendly Escorts Image */}
-                <div className="w-full my-4 overflow-hidden">
+                <div className="w-full max-w-xl mx-auto my-4 overflow-hidden rounded-lg">
                   <img 
                     src="/escorts_images/Fetish%20Friendly%20Escorts.png" 
                     alt="Fetish Friendly Escorts"
-                    className="w-full max-h-[500px] object-cover"
+                    className="w-full max-h-[220px] sm:max-h-[300px] md:max-h-[360px] object-cover"
                   />
                 </div>
 
@@ -271,16 +271,16 @@ export default function Home({ adminId, posterId }) {
                   <strong className="font-semibold text-white">Fetish-friendly</strong> escorts cater to specific interests, kinks, and roleplay scenarios — all within a safe, consensual framework. Whether you're into light bondage, foot worship, role reversal, or sensation play, there are providers who specialize in creating structured, respectful environments for exploration. On TruEscorts, you can identify these listings using search terms or the "fetish" tag. Profiles may also outline tools used, limits observed, and experience level with particular fetishes. Some companions travel with props or wearables, while others have fully equipped incall spaces. Communication is key in fetish play, so always discuss interests in advance. Not sure where to start? Visit <a href="https://fetlife.com" target="_blank" rel="noopener noreferrer" className="text-[#fbc02d] hover:underline">FetLife</a> to learn more about boundaries, etiquette, and popular fantasies.
                 </p>
 
-                <hr className="border-t-2 border-[#c2185b] my-8" />
+                <hr className="border-t-2 border-[#ff66c4] my-6 md:my-8" />
 
-                <h3 className="text-xl font-bold text-[#c2185b] mb-4">
+                <h3 className="text-lg md:text-xl font-bold text-[#ff66c4] mb-4">
                   Things to Do With an Escort
                 </h3>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
                   Escorts are more than just companions — they're partners in experience. Many clients enjoy planning outings with providers that go beyond the hotel room. Whether it's dinner at a fine restaurant, cocktails at a rooftop bar, or even a stroll through a local attraction, the right companion adds energy and presence to the occasion. Planning something fun together creates natural chemistry and a more memorable connection. On TruEscorts, you'll find listings from providers who enjoy social dates, conversation-led experiences, and extended arrangements. Just communicate your expectations ahead of time, and be respectful of time, comfort, and boundaries. With the right energy, your escort date can feel effortless, exciting, and real.
                 </p>
 
-                <hr className="border-t-2 border-[#c2185b] my-8" />
+                <hr className="border-t-2 border-[#ff66c4] my-6 md:my-8" />
 
                 {/* Business Info Block */}
                 <div className="text-zinc-400 text-sm space-y-1 mb-4">
@@ -292,7 +292,7 @@ export default function Home({ adminId, posterId }) {
                 <div className="py-2">
                   <button 
                     onClick={() => setIsExpanded(false)}
-                    className="text-[#fbc02d] hover:text-[#f57f17] text-sm font-semibold hover:underline"
+                    className="text-[#fbc02d] hover:text-[#ff66c4] text-sm font-semibold hover:underline"
                   >
                     Show Less
                   </button>
