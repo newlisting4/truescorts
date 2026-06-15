@@ -304,7 +304,8 @@ export default function Home({ adminId, posterId }) {
       )}
 
       {/* Footer */}
-      // <Footer />
+       <Footer />
+      
     </div>
   );
 }
