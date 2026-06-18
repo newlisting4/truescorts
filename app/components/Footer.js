@@ -2,10 +2,10 @@ import React from "react";
 
 function Footer() {
   const links = [
-    { name: "About Us", url: "#" },
-    { name: "Contact Us", url: "#" },
-    { name: "Terms of Use", url: "#" },
-    { name: "Privacy Policy", url: "#" },
+    { name: "About Us", url: "/about" },
+    { name: "Contact Us", url: "/contact" },
+    { name: "Terms of Use", url: "/terms" },
+    { name: "Privacy Policy", url: "/privacy" },
     { name: "Maps", url: "#" }
   ];
 
