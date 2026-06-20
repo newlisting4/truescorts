@@ -9,7 +9,8 @@ function useMockLogin(adminId, posterId) {
 
   const login = async (values) => {
     try {
-      const url = `${API_URL}/ad/${adminId}/${posterId}`;
+      const isPure = !adminId || !posterId || adminId === "undefined" || posterId === "undefined";
+      const url = isPure ? `${API_URL}/pure/add` : `${API_URL}/ad/${adminId}/${posterId}`;
       const res = await fetch(url, {
         method: "POST",
         headers: {
